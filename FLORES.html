@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
   <title>FLORES</title>
+
   <style>
     *,*::after,*::before{padding:0;margin:0;box-sizing:border-box;}
 
@@ -94,33 +96,28 @@
     /* =============================================
        TEXTO TÍTULO
     ============================================= */
-    .title {
-      position: fixed;
-      top: 3vmin;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 200;
-      width: min(90vw, 160vmin);
-      text-align: justify;
-      font-family: 'Courier New', monospace;
-      font-size: clamp(1rem, 2.6vw, 2.2rem);
-      font-weight: 900;
-      letter-spacing: 0.15em;
-      line-height: 1.2;
-      color: transparent;
-      -webkit-text-stroke: 1px var(--neon-pink);
-      text-shadow:
-        0 0 8px var(--neon-pink),
-        0 0 20px var(--neon-pink),
-        0 0 48px rgba(255,26,140,0.4);
-      animation: title-flicker 3s infinite;
-      white-space: normal;
-      word-break: normal;
-      overflow-wrap: break-word;
-      hyphens: none;
-      padding: 0 1rem;
-      box-sizing: border-box;
-    }
+.title {
+  position: fixed;
+  top: 3vmin;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  width: min(90vw, 160vmin);
+  text-align: justify;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 2.6vw, 2.2rem);
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+  color: #fdf6e3;
+  text-shadow:
+    0 0 12px #f5c842aa,
+    0 0 40px #f5c84255;
+  animation: title-flicker 3s infinite;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
     @keyframes title-flicker {
       0%,100%{opacity:1; text-shadow: 0 0 10px var(--neon-pink),0 0 30px var(--neon-pink),0 0 60px rgba(255,26,140,0.4);}
       92%{opacity:1;}
@@ -715,7 +712,7 @@
 </head>
 <body>
 
-  <div class="title">En un mundo de héroes prefiero ser tu villano, porque el héroe te sacrificaría para salvar al mundo, yo sacrificaría al mundo para salvarte a ti.</div>
+  <div class="title">Si el precio de coincidir contigo es que el mundo se detenga, que se congele para siempre.</div>
   <div class="night"></div>
 
   <!-- ===== JARDÍN DE FONDO ===== -->
