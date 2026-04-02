@@ -991,6 +991,10 @@
 
   </div>
 
+  <audio id="audio" autoplay preload="auto">
+  <source src="img/Enanitos Verdes - Frances Limon.mp3" type="audio/mpeg">
+</audio>
+
   <script>
     // =============================================
     // GENERADOR DE JARDÍN DE FONDO
@@ -1068,5 +1072,18 @@
       }
     });
   </script>
+  <script>
+  const audio = document.getElementById('audio');
+  const savedTime    = parseFloat(localStorage.getItem('audioTime') || '0');
+  const wasPlaying   = localStorage.getItem('audioWasPlaying') === '1';
+
+  audio.addEventListener('canplay', () => {
+    if (savedTime > 0) audio.currentTime = savedTime;
+    if (wasPlaying) audio.play();
+    // Limpia para que no afecte recargas futuras
+    localStorage.removeItem('audioTime');
+    localStorage.removeItem('audioWasPlaying');
+  }, { once: true });
+</script>
 </body>
 </html>
