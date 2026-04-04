@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -14,6 +14,7 @@
         --neon-pink: #ff1a8c;
         --neon-orange: #ff6a00;
         --neon-green: #39ff14;
+        --neon-purple: #9900cc;
       }
 
       body {
@@ -94,7 +95,7 @@
       .bg-tulip__petal--3 { left: 50%; transform: translate(-90%,  0%) rotateY(45deg) rotateX(50deg); }
 
       /* =============================================
-        TEXTO TÍTULO
+        TEXTO TÍTULO - AHORA MORADO Y CURSIVO
       ============================================= */
   .title {
     position: fixed;
@@ -106,20 +107,20 @@
     text-align: justify;
     font-family: 'Playfair Display', serif;
     font-size: clamp(1rem, 2.6vw, 2.2rem);
-    font-weight: 700;
+    font-weight: 400;
     font-style: italic;
     letter-spacing: 0.05em;
     line-height: 1.3;
-    color: #fdf6e3;
+    color: var(--neon-purple);
     text-shadow:
-      0 0 12px #f5c842aa,
-      0 0 40px #f5c84255;
+      0 0 12px var(--neon-purple),
+      0 0 40px rgba(153, 0, 204, 0.5);
     animation: title-flicker 3s infinite;
     padding: 0 1rem;
     box-sizing: border-box;
   }
       @keyframes title-flicker {
-        0%,100%{opacity:1; text-shadow: 0 0 10px var(--neon-pink),0 0 30px var(--neon-pink),0 0 60px rgba(255,26,140,0.4);}
+        0%,100%{opacity:1; text-shadow: 0 0 10px var(--neon-purple), 0 0 30px var(--neon-purple), 0 0 60px rgba(153,0,204,0.4);}
         92%{opacity:1;}
         93%{opacity:0.6;}
         94%{opacity:1;}
@@ -137,7 +138,7 @@
       }
 
       /* =============================================
-        FLOR BASE
+        FLOR BASE - CLICKEABLE
       ============================================= */
       .flower {
         position: absolute;
@@ -145,6 +146,12 @@
         transform-origin: bottom center;
         z-index: 10;
         --fl-speed: 0.8s;
+        cursor: pointer;
+        transition: filter 0.3s ease;
+      }
+
+      .flower:hover {
+        filter: brightness(1.2);
       }
 
       /* ---- Flower 1 (izquierda) ---- */
@@ -668,6 +675,67 @@
       }
 
       /* =============================================
+        MODAL DE POEMA - TEXTO AMARILLO PURO
+      ============================================= */
+      .poem-modal {
+        position: fixed;
+        z-index: 300;
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        color: #FFD700;
+        text-shadow: 0 0 8px rgba(255, 215, 0, 0.5), 0 0 15px rgba(255, 215, 0, 0.3);
+        font-size: clamp(0.9rem, 2.5vw, 1.4rem);
+        line-height: 1.8;
+        text-align: center;
+        pointer-events: none;
+        opacity: 0;
+        animation: fadeInOut 6s ease-in-out forwards;
+        padding: 0;
+        border-radius: 0;
+        max-width: 85vw;
+        word-wrap: break-word;
+        letter-spacing: 0.02em;
+        background: transparent;
+      }
+
+      @media (max-width: 768px) {
+        .poem-modal {
+          top: auto !important;
+          left: 50% !important;
+          transform: translateX(-50%) !important;
+          bottom: 50vh;
+          width: 90vw;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .poem-modal {
+          left: auto;
+          right: 8vw;
+          top: 20vh;
+        }
+      }
+
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px) scale(0.9);
+        }
+        15% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+        85% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(20px) scale(0.9);
+        }
+      }
+
+      /* =============================================
         KEYFRAMES
       ============================================= */
       .grow-ans { animation:grow-ans 2s var(--d) backwards; }
@@ -720,10 +788,10 @@
 
     <div class="ground"></div>
 
-    <div class="flowers">
+    <div class="flowers" id="flowerContainer">
 
       <!-- FLOR 1 — ROSA/MAGENTA -->
-      <div class="flower flower--1">
+      <div class="flower flower--1" data-poem="El otro dia me di cuenta que estaba<br>pensando en ti, y me puse a pensar<br>cuanto tiempo llevaba pensando<br>en ti y me di cuenta que desde <br> que te conocí no ah pasasdo <br> un dia sin pensar en ti.">
         <div class="flower__leafs flower__leafs--1">
           <div class="flower__leaf flower__leaf--1"></div>
           <div class="flower__leaf flower__leaf--2"></div>
@@ -750,7 +818,7 @@
       </div>
 
       <!-- FLOR 2 — AMARILLA -->
-      <div class="flower flower--2">
+      <div class="flower flower--2" data-poem="Hoy te extrañe un monton, <br> extraño conversar contigo, <br> no quiero decirtelo, pero <br> aqui te lo dejo por si el <br>destino quiere que lo leas.<br> Te quiero mucho.">
         <div class="flower__leafs flower__leafs--2">
           <div class="flower__leaf flower__leaf--1"></div>
           <div class="flower__leaf flower__leaf--2"></div>
@@ -775,7 +843,7 @@
       </div>
 
       <!-- FLOR 3 — ROJA -->
-      <div class="flower flower--3">
+      <div class="flower flower--3" data-poem="Dicen que el insomnio <br> es por falta de sueño; el <br>mio es por falta de ti, es <br> que tu eres mi sueño, y <br> me faltas aqui.">
         <div class="flower__leafs flower__leafs--3">
           <div class="flower__leaf flower__leaf--1"></div>
           <div class="flower__leaf flower__leaf--2"></div>
@@ -800,7 +868,7 @@
       </div>
 
       <!-- FLOR 4 — CYAN -->
-      <div class="flower flower--4">
+      <div class="flower flower--4" data-poem="Tal vez ya no sepa a donde ir, <br> pero si pudiera una mañana abrir los <br>ojos y ver los tuyos, sabria donde quedarme.">
         <div class="flower__leafs flower__leafs--4">
           <div class="flower__leaf flower__leaf--1"></div>
           <div class="flower__leaf flower__leaf--2"></div>
@@ -825,7 +893,7 @@
       </div>
 
       <!-- FLOR 5 — MORADA -->
-      <div class="flower flower--5">
+      <div class="flower flower--5" data-poem="Disculpame por no poder corresponder a tu olvido, <br> pero se me van los dias extrañando tu presencia, <br>perdido en los ojos que queria ver toda mi vida y en los 'buenos dias' <br> que nunca mas nos dimos.">
         <div class="flower__leafs flower__leafs--5">
           <div class="flower__leaf flower__leaf--1"></div>
           <div class="flower__leaf flower__leaf--2"></div>
@@ -850,7 +918,7 @@
       </div>
 
       <!-- FLOR 6 — NARANJA -->
-      <div class="flower flower--6">
+      <div class="flower flower--6" data-poem="Recuerdas que un dia me dijiste que las canciones <br> de Josean Log te recordaban mi? pues Chachachá y Pruebame a ti <br> siempre seran tuyas. <br> Espero puedas disculpar mi egoismo al dedicarte todo esto.">
         <div class="flower__leafs flower__leafs--6">
           <div class="flower__leaf flower__leaf--1"></div>
           <div class="flower__leaf flower__leaf--2"></div>
@@ -1024,20 +1092,18 @@
       // GENERADOR DE JARDÍN DE FONDO
       // =============================================
       const bgColors = [
-        // [petal1-2-3 gradient, sepal gradient]
-        ['#7a0000','#cc0011','#ff3355',   '#8a5a00','#ffcc44'],  // rojo
-        ['#8a5a00','#d49000','#ffe033',   '#8a5a00','#fff176'],  // amarillo
-        ['#999','#ddd','#fff',            '#c89000','#ffe066'],  // blanco
-        ['#8b0050','#cc0088','#ff66bb',   '#b89000','#ffe066'],  // rosa
-        ['#3a0070','#8800cc','#cc55ff',   '#b89000','#ffe066'],  // morado
-        ['#7a2200','#d04400','#ff7700',   '#b89000','#ffe066'],  // naranja
-        ['#006070','#00aacc','#88eeff',   '#b89000','#ffe066'],  // cyan
+        ['#7a0000','#cc0011','#ff3355',   '#8a5a00','#ffcc44'],
+        ['#8a5a00','#d49000','#ffe033',   '#8a5a00','#fff176'],
+        ['#999','#ddd','#fff',            '#c89000','#ffe066'],
+        ['#8b0050','#cc0088','#ff66bb',   '#b89000','#ffe066'],
+        ['#3a0070','#8800cc','#cc55ff',   '#b89000','#ffe066'],
+        ['#7a2200','#d04400','#ff7700',   '#b89000','#ffe066'],
+        ['#006070','#00aacc','#88eeff',   '#b89000','#ffe066'],
       ];
 
       const garden = document.getElementById('bgGarden');
       const viewW = window.innerWidth;
 
-      // Generar filas de profundidad: fila trasera, media, frontal
       const rows = [
         { count: 28, bottom: '32%', scale: 0.32, opacity: 0.18, blur: 4,  stemH: 38, cupW: 14, petalW: 8, petalH: 16 },
         { count: 22, bottom: '18%', scale: 0.45, opacity: 0.28, blur: 2.5,stemH: 52, cupW: 18, petalW:10, petalH: 20 },
@@ -1065,7 +1131,6 @@
             --sway-mid: rotate(${tilt + (Math.random()>0.5?2:-2)}deg);
           `;
 
-          // Copa (pétalos)
           const cup = document.createElement('div');
           cup.className = 'bg-tulip__cup';
           cup.style.width = row.cupW + 'px';
@@ -1085,7 +1150,6 @@
             cup.appendChild(petal);
           }
 
-          // Tallo
           const stem = document.createElement('div');
           stem.className = 'bg-tulip__stem';
           stem.style.height = row.stemH + 'px';
@@ -1094,6 +1158,49 @@
           wrapper.appendChild(stem);
           garden.appendChild(wrapper);
         }
+      });
+
+      // =============================================
+      // INTERACTIVIDAD DE FLORES - MOSTRAR POEMAS
+      // =============================================
+      const flowers = document.querySelectorAll('.flower');
+      const flowerContainer = document.getElementById('flowerContainer');
+
+      flowers.forEach(flower => {
+        flower.addEventListener('click', function(e) {
+          // Obtener el poema del atributo data-poem
+          const poemText = this.getAttribute('data-poem');
+          
+          if (!poemText) return;
+
+          // Crear elemento del modal
+          const modal = document.createElement('div');
+          modal.className = 'poem-modal';
+          modal.innerHTML = poemText;
+
+          // Detectar si es móvil o desktop
+          const isMobile = window.innerWidth <= 768;
+
+          if (isMobile) {
+            // En móvil: abajo del título
+            modal.style.top = 'auto';
+            modal.style.left = '50%';
+            modal.style.transform = 'translateX(-50%)';
+            modal.style.bottom = '50vh';
+          } else {
+            // En desktop: a la derecha arriba
+            modal.style.top = '20vh';
+            modal.style.right = '8vw';
+            modal.style.left = 'auto';
+          }
+
+          document.body.appendChild(modal);
+
+          // Remover el modal cuando termine la animación (6 segundos)
+          setTimeout(() => {
+            modal.remove();
+          }, 6000);
+        });
       });
     </script>
   </body>
