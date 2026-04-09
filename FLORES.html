@@ -988,7 +988,7 @@
 
       <!-- FLOR 7 — TURQUESA/VERDE-->
       <div class="flower flower--7"
-        data-poem="Recuerdas que un dia me dijiste que las canciones <br> de Josean Log te recordaban mi? pues Chachachá y Pruebame a ti <br> siempre seran tuyas. <br> Espero puedas disculpar mi egoismo al dedicarte todo esto.">
+        data-poem="¿Recuerdas que un día me dijiste que las canciones <br> de Josean Log siempre te recordarian a mí? Pues 'Chachachá, 'Beso' y 'Pruébame a ti' <br> siempre fueron, son y serán para ti. <br> Y 'Si Hay Algo' dímelo una vez mas.">
         <div class="flower__leafs flower__leafs--7">
           <div class="flower__leaf flower__leaf--1"></div>
           <div class="flower__leaf flower__leaf--2"></div>
@@ -1128,9 +1128,7 @@
       </div>
 
     </div>
-<audio id="audio" loop preload="auto">
-  <source src="img/Jósean Log - Pruébame a Ti.mp3" type="audio/mpeg">
-</audio>
+<audio id="audio" loop preload="auto"></audio>
 
 <button id="playBtn" onclick="
   var a=document.getElementById('audio');
@@ -1146,15 +1144,31 @@
 ">▶ Reproducir</button>
 
 <script>
-  // Intenta autoplay; si falla, muestra el botón
+  const canciones = [
+    "img/Jósean Log - Pruébame a Ti.mp3",
+    "img/Jósean Log - Beso (Lyric Video).mp3",
+    "img/Jósean Log - Chachachá (Lyric Video).mp3",
+    "img/Jósean Log - Si Hay Algo (video oficial).mp3"
+  ];
+
   window.addEventListener('load', () => {
     const audio = document.getElementById('audio');
+    const aleatoria = canciones[Math.floor(Math.random() * canciones.length)];
+    
+    audio.src = aleatoria;
+
     audio.play().then(() => {
       document.getElementById('playBtn').style.display = 'none';
     }).catch(() => {
       document.getElementById('playBtn').style.display = 'block';
     });
   });
+
+  // El botón también debe usar la canción ya cargada
+  document.getElementById('playBtn').onclick = function() {
+    document.getElementById('audio').play();
+    this.style.display = 'none';
+  };
 </script>
 
     <script>
