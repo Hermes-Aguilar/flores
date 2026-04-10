@@ -113,8 +113,8 @@
     line-height: 1.3;
     color: var(--neon-purple);
     text-shadow:
-      0 0 12px var(--neon-purple),
-      0 0 40px rgba(153, 0, 204, 0.5);
+      0 0 12px var(--blue-),
+      0 0 40px rgba(1, 238, 255, 0.5);
     animation: title-flicker 3s infinite;
     padding: 0 1rem;
     box-sizing: border-box;
@@ -231,6 +231,59 @@
   outline: 1px solid rgba(255,180,0,0.5);
 }
 
+/* ---- Flower 8 (azul eléctrico) ---- */
+.flower--8 { left: 110%; transform: rotate(-12deg); animation: moving-flower-2 4.2s linear infinite; }
+.flower--8 .flower__line { height: 50vmin; animation-delay: 0.6s; }
+.flower--8 .flower__line__leaf--1 { animation: blooming-leaf-right var(--fl-speed) 1.9s backwards; }
+.flower--8 .flower__line__leaf--2 { animation: blooming-leaf-right var(--fl-speed) 1.7s backwards; }
+.flower--8 .flower__line__leaf--3 { animation: blooming-leaf-left  var(--fl-speed) 1.5s backwards; }
+.flower--8 .flower__line__leaf--4 { animation: blooming-leaf-left  var(--fl-speed) 1.3s backwards; }
+
+.flower__leafs--8 { animation-delay: 1.2s; }
+
+/* FLOR 8 — AZUL ELÉCTRICO */
+.flower--8 .flower__leaf--1,
+.flower--8 .flower__leaf--2,
+.flower--8 .flower__leaf--3 {
+  background-image: linear-gradient(to top, #001a6e, #0055ff, #66aaff);
+  box-shadow:
+    0 0 4px #66aaff,
+    0 0 14px rgba(0,100,255,0.5),
+    inset 0 0 8px rgba(0,100,255,0.2);
+  outline: 1.5px solid rgba(100,170,255,0.7);
+}
+.flower--8 .flower__leaf--4 {
+  background-image: linear-gradient(to top, #b89000, #ffe066);
+  box-shadow: 0 0 5px var(--neon-orange);
+  outline: 1px solid rgba(255,180,0,0.5);
+}
+
+/* ---- Flower 9 (derecha extrema) ---- */
+.flower--9 { left: 140%; transform: rotate(-10deg); animation: moving-flower-3 4.3s linear infinite; z-index: -1; }
+.flower--9 .flower__line { height: 69vmin; animation-delay: 0.7s; }
+.flower--9 .flower__line__leaf--1 { animation: blooming-leaf-right var(--fl-speed) 1.9s backwards; }
+.flower--9 .flower__line__leaf--2 { animation: blooming-leaf-right var(--fl-speed) 1.7s backwards; }
+.flower--9 .flower__line__leaf--3 { animation: blooming-leaf-left  var(--fl-speed) 1.5s backwards; }
+.flower--9 .flower__line__leaf--4 { animation: blooming-leaf-left  var(--fl-speed) 1.3s backwards; }
+
+.flower__leafs--9 { animation-delay: 1.1s; }
+
+/* FLOR 9 — ROSA FUCSIA neon */
+.flower--9 .flower__leaf--1,
+.flower--9 .flower__leaf--2,
+.flower--9 .flower__leaf--3 {
+  background-image: linear-gradient(to top, #6a0080, #cc00cc, #ff66ff);
+  box-shadow:
+    0 0 4px #ff66ff,
+    0 0 14px rgba(255,0,255,0.5),
+    inset 0 0 8px rgba(255,0,255,0.2);
+  outline: 1.5px solid rgba(255,100,255,0.7);
+}
+.flower--9 .flower__leaf--4 {
+  background-image: linear-gradient(to top, #b89000, #ffe066);
+  box-shadow: 0 0 5px var(--neon-orange);
+  outline: 1px solid rgba(255,180,0,0.5);
+}
       /* =============================================
         CÁLIZ — con contorno boceto neon
       ============================================= */
@@ -807,7 +860,7 @@
   </head>
   <body>
 
-    <div class="title">Si el precio de coincidir contigo es que el mundo se detenga, que se congele para siempre.</div>
+    <div class="title">Tantas cosas bonitas para decirte  y tan pocas salen de mi boca. Deberias aprender a leer mis ojos cuando te miro❤️. <br> </div>
     <div class="night"></div>
     <div style="
       position: fixed;
@@ -835,7 +888,7 @@
     <div class="flowers" id="flowerContainer">
 
       <!-- FLOR 1 — ROSA/MAGENTA -->
-      <div class="flower flower--1" data-poem="El otro dia estaba pensando <br>en cuentas veces te pienso al dia <br> y me di cuenta que desde te pensé por primera vez, <br> no he dejado de hacerlo en cada instante. <br> Aunque el tiempo pase y las distancias existan,<br> tu recuerdo se quedó instalado,<br> como si nunca te hubieras ido ">
+      <div class="flower flower--1" data-poem="El otro dia estaba pensando <br>en cuentas veces te pienso al dia <br> y me di cuenta que desde te pensé por primera vez, <br> no he dejado de hacerlo en cada instante. <br> Aunque el tiempo pase y las distancias existan,<br> tu recuerdo se quedó instalado,<br> como si nunca te hubieras ido.">
         <div class="flower__leafs flower__leafs--1">
           <div class="flower__leaf flower__leaf--1"></div>
           <div class="flower__leaf flower__leaf--2"></div>
@@ -1012,6 +1065,55 @@
         </div>
 </div>
 
+<!-- FLOR 8 — AZUL ELÉCTRICO -->
+<div class="flower flower--8" data-poem="Cada vez que tu mirada se cruza con la mia <br> siento como el tiempo se detine. <br> Es como si el mundo entero hiciera una pausa para dejarme <br>grabar en el corazon cada detalle de tu rostro, de tus ojos, de tu sonrisa. <br> Contigo aprendi que un instante puede ser eterno si se mira con amor.">
+  <div class="flower__leafs flower__leafs--8">
+    <div class="flower__leaf flower__leaf--1"></div>
+    <div class="flower__leaf flower__leaf--2"></div>
+    <div class="flower__leaf flower__leaf--3"></div>
+    <div class="flower__leaf flower__leaf--4"></div>
+    <div class="flower__white-circle"></div>
+    <div class="flower__light flower__light--1"></div>
+    <div class="flower__light flower__light--2"></div>
+    <div class="flower__light flower__light--3"></div>
+    <div class="flower__light flower__light--4"></div>
+    <div class="flower__light flower__light--5"></div>
+    <div class="flower__light flower__light--6"></div>
+    <div class="flower__light flower__light--7"></div>
+    <div class="flower__light flower__light--8"></div>
+  </div>
+  <div class="flower__line">
+    <div class="flower__line__leaf flower__line__leaf--1"></div>
+    <div class="flower__line__leaf flower__line__leaf--2"></div>
+    <div class="flower__line__leaf flower__line__leaf--3"></div>
+    <div class="flower__line__leaf flower__line__leaf--4"></div>
+  </div>
+</div>
+
+<!-- FLOR 9 — FUCSIA DERECHA -->
+<div class="flower flower--9" data-poem="El mundo es inmenso y la vida esta llena de <br> coincidencias improbables, pero aun asi... <br> De entre millones de personas y lugares, <br> el destino quiso regalarme a ti. <br> Ese privilegio, el de conocerte, <br> sera siempre mi milagro favorito.">
+  <div class="flower__leafs flower__leafs--9">
+    <div class="flower__leaf flower__leaf--1"></div>
+    <div class="flower__leaf flower__leaf--2"></div>
+    <div class="flower__leaf flower__leaf--3"></div>
+    <div class="flower__leaf flower__leaf--4"></div>
+    <div class="flower__white-circle"></div>
+    <div class="flower__light flower__light--1"></div>
+    <div class="flower__light flower__light--2"></div>
+    <div class="flower__light flower__light--3"></div>
+    <div class="flower__light flower__light--4"></div>
+    <div class="flower__light flower__light--5"></div>
+    <div class="flower__light flower__light--6"></div>
+    <div class="flower__light flower__light--7"></div>
+    <div class="flower__light flower__light--8"></div>
+  </div>
+  <div class="flower__line">
+    <div class="flower__line__leaf flower__line__leaf--1"></div>
+    <div class="flower__line__leaf flower__line__leaf--2"></div>
+    <div class="flower__line__leaf flower__line__leaf--3"></div>
+    <div class="flower__line__leaf flower__line__leaf--4"></div>
+  </div>
+</div>
       <!-- ELEMENTOS DE PASTO Y DECORACIÓN -->
       <div class="grow-ans" style="--d:1.2s">
         <div class="flower__g-long">
