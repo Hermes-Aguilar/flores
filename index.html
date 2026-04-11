@@ -842,6 +842,7 @@
   <script>
     function goToFlores() {
       // Guarda el tiempo actual antes de salir
+      audio.pause();
       localStorage.setItem('audioTime', audio.currentTime);
       localStorage.setItem('audioWasPlaying', isPlaying ? '1' : '0');
       window.location.href = 'FLORES.html';

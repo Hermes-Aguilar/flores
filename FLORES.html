@@ -295,10 +295,11 @@
       left: -28%;
       transform: rotate(-8deg);
       animation: moving-flower-1 4.5s linear infinite;
+      z-index: 15;
     }
 
     .flower--4 .flower__line {
-      height: 55vmin;
+      height: 59vmin;
       animation-delay: 0.4s;
     }
 
@@ -380,12 +381,12 @@
       left: 88%;
       transform: rotate(-6deg);
       animation: moving-flower-1 4.8s linear infinite;
-      z-index: 40;
+      z-index: 50;
     }
 
     .flower--7 .flower__line {
-      height: 62vmin;
-      animation-delay: 0.5s;
+      height: 47vmin;
+      animation-delay: 0.7s;
     }
 
     .flower--7 .flower__line__leaf--1 {
@@ -1883,7 +1884,7 @@
 
     <!-- FLOR 1 — ROSA/MAGENTA -->
     <div class="flower flower--1"
-      data-poem="El otro dia estaba pensando <br>en cuentas veces te pienso al dia <br> y me di cuenta que desde te pensé por primera vez, <br> no he dejado de hacerlo en cada instante. <br> Aunque el tiempo pase y las distancias existan,<br> tu recuerdo se quedó instalado,<br> como si nunca te hubieras ido.">
+      data-poem="El otro dia estaba pensando <br>en cuantas veces te pienso al dia <br> y me di cuenta que desde te pensé por primera vez, <br> no he dejado de hacerlo en cada instante. <br> Aunque el tiempo pase y las distancias existan,<br> tu recuerdo se quedó instalado,<br> como si nunca te hubieras ido.">
       <div class="flower__leafs flower__leafs--1">
         <div class="flower__leaf flower__leaf--1"></div>
         <div class="flower__leaf flower__leaf--2"></div>
@@ -2320,7 +2321,7 @@
     </div>
 
   </div>
-  <audio id="audio" loop preload="auto"></audio>
+  <audio id="audio" preload="auto"></audio>
 
   <button id="playBtn" onclick="
   var a=document.getElementById('audio');
@@ -2349,18 +2350,17 @@
       audio.play();
     });
 
-    window.addEventListener('load', () => {
-      const audio = document.getElementById('audio');
-      audio.src = canciones[0];
 
-      audio.play().then(() => {
-        document.getElementById('playBtn').style.display = 'none';
-      }).catch(() => {
-        document.getElementById('playBtn').style.display = 'block';
-      });
-    });
+window.addEventListener('load', () => {
+  audio.src = canciones[0];  
+  audio.play().then(() => {
+    document.getElementById('playBtn').style.display = 'none';
+  }).catch(() => {
+    document.getElementById('playBtn').style.display = 'block';
+  });
+});
 
-    // El botón también debe usar la canción ya cargada
+
     document.getElementById('playBtn').onclick = function () {
       document.getElementById('audio').play();
       this.style.display = 'none';
