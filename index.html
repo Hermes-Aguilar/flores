@@ -58,6 +58,21 @@
       transform-origin: 110px 64px;
     }
 
+
+    @keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 4px 20px rgba(245,200,66,0.3); }
+  50%       { box-shadow: 0 0 0 10px rgba(245,200,66,0.15), 0 0 30px rgba(245,200,66,0.5); }
+}
+
+@media (max-width: 700px) {
+  .greetings {
+    animation: pulse-gold 2s ease-in-out infinite;
+  }
+  .greetings:hover {
+    animation: none;
+  }
+}
+
     @keyframes boat-rock {
 
       0%,
@@ -735,6 +750,32 @@
         font-size: 0.95rem;
       }
     }
+
+    .song-dedication {
+  position: absolute;
+  bottom: 4.5rem;
+  left: 1.2rem;
+  right: 1.2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.72rem;
+  font-style: italic;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  opacity: 0.75;
+  text-transform: uppercase;
+}
+
+.btn-hint {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-dim);
+  margin-top: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 1s 3.5s forwards;  /* aparece al final de las demás animaciones */
+}
   </style>
 </head>
 
@@ -789,9 +830,10 @@
           </div>
         </div>
       </div>
-      <button class="greetings" onclick="goToFlores()">
-        Para ti
-      </button>
+<button class="greetings" onclick="goToFlores()">
+   Para ti
+</button>
+
 
     </div>
 
@@ -810,7 +852,7 @@
             <polygon points="5,3 19,12 5,21" />
           </svg>
         </div>
-
+        <p class="song-dedication">✦ Esta canción es para ti ✦</p>
         <div class="song-title-block">
           <p class="song-name" id="songNameDisplay">Nombre de la canción</p>
           <p class="song-artist" id="songArtistDisplay">Artista</p>
